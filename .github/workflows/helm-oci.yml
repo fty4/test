@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: helm push
 
 # Controls when the workflow will run
 on:
@@ -33,4 +33,4 @@ jobs:
         run: echo '${{ secrets.GITHUB_TOKEN }}' | docker login ghcr.io -u fty4 --password-stdin
         
       - name: push
-        run: helm push app-*.tgz oci://ghcr.io/fty4/test
+        run: helm push app-*.tgz oci://ghcr.io/fty4
