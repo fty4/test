@@ -29,5 +29,8 @@ jobs:
       - name: package
         run: helm package --dependency-update ./app
         
+      - name: login ghcr
+        run: echo '${{ secrets.GITHUB_TOKEN }}' | docker login ghcr.io -u fty4 --password-stdin
+        
       - name: push
         run: helm push app-*.tgz oci://ghcr.io/fty4/test
